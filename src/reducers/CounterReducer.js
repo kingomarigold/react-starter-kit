@@ -1,16 +1,16 @@
-import { INCREMENT_SUCCESS, DECREMENT_SUCCESS } from '../actionTypes/CounterActionTypes';
+import { INCREMENT_SUCCESS, DECREMENT_SUCCESS } from '../actionTypes/CounterActionTypes'
 
-const defaultState = 1;
+const defaultState = 1
 
 const counter = (state = defaultState, action) => {
   switch (action.type) {
     case INCREMENT_SUCCESS:
-      return state + 1;
+      return state + 1
     case DECREMENT_SUCCESS:
-      return state - 1;
+      return state - 1
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default counter;
+export default counter

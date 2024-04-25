@@ -1,26 +1,26 @@
-import createSagaMiddleware from 'redux-saga';
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from '../reducers';
-import rootSagas from '../sagas';
+import createSagaMiddleware from 'redux-saga'
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import reducers from '../reducers'
+import rootSagas from '../sagas'
 
-const sagaMiddleware = createSagaMiddleware();
-let middleware = applyMiddleware(sagaMiddleware);
+const sagaMiddleware = createSagaMiddleware()
+let middleware = applyMiddleware(sagaMiddleware)
 
 // adding redux devtools for developmennt mode
 if (__DEVELOPMENT__) {
-  middleware = composeWithDevTools(middleware);
+  middleware = composeWithDevTools(middleware)
 }
 
 // eslint-disable-next-line no-underscore-dangle
-const initialState = !__SERVER__ ? window.__PRELOADED__STATE__ : {};
+const initialState = !__SERVER__ ? window.__PRELOADED__STATE__ : {}
 
-const store = createStore(reducers, initialState, middleware);
+const store = createStore(reducers, initialState, middleware)
 
 if (__SERVER__) {
-  store.runSaga = sagaMiddleware.run;
+  store.runSaga = sagaMiddleware.run
 } else {
-  sagaMiddleware.run(rootSagas);
+  sagaMiddleware.run(rootSagas)
 }
 
-export default store;
+export default store

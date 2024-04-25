@@ -1,5 +1,5 @@
-import { takeLatest, put } from 'redux-saga/effects';
-import { INCREMENT, INCREMENT_SUCCESS } from '../actionTypes/CounterActionTypes';
+import { takeLatest, put } from 'redux-saga/effects'
+import { INCREMENT, INCREMENT_SUCCESS } from '../actionTypes/CounterActionTypes'
 // import RestClient from '../Utils/RestClient';
 
 function* incrementUserCountSaga() {
@@ -9,9 +9,9 @@ function* incrementUserCountSaga() {
   } catch (error) {
     // console.log(error.message);
   }
-  yield put({ type: INCREMENT_SUCCESS, payload: {} });
+  yield put({ type: INCREMENT_SUCCESS, payload: {} })
 }
 
 export default function* watchIncrementCountSaga() {
-  yield takeLatest(INCREMENT, incrementUserCountSaga);
+  yield takeLatest(INCREMENT, incrementUserCountSaga)
 }

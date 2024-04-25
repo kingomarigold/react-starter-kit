@@ -1,6 +1,6 @@
-import React from 'react';
-import Loader from './Loader';
+import React from 'react'
+import Loader from './Loader'
 
-export default { title: 'Loader' };
+export default { title: 'Loader' }
 
-export const Default = () => <Loader />;
+export const Default = () => <Loader />

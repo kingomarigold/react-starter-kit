@@ -1,5 +1,5 @@
-import { takeLatest, put } from 'redux-saga/effects';
-import { DECREMENT, DECREMENT_SUCCESS } from '../actionTypes/CounterActionTypes';
+import { takeLatest, put } from 'redux-saga/effects'
+import { DECREMENT, DECREMENT_SUCCESS } from '../actionTypes/CounterActionTypes'
 // import RestClient from '../Utils/RestClient';
 
 function* decrementUserCountSaga() {
@@ -7,9 +7,9 @@ function* decrementUserCountSaga() {
   //   url: `base-url/${action.payload.queryParam}`,
   // };
   // const response = yield call(RestClient.get, requestObject);
-  yield put({ type: DECREMENT_SUCCESS, payload: {} });
+  yield put({ type: DECREMENT_SUCCESS, payload: {} })
 }
 
 export default function* watchDecrementCountSaga() {
-  yield takeLatest(DECREMENT, decrementUserCountSaga);
+  yield takeLatest(DECREMENT, decrementUserCountSaga)
 }

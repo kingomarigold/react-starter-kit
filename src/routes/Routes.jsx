@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Loader from '../components/loader/Loader';
-import NotFound from './Routes.lazy';
-import App from '../components/App';
+import React, { Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Loader from '../components/loader/Loader'
+import NotFound from './Routes.lazy'
+import App from '../components/App'
 
 const RoutePaths = () => (
   <>
@@ -15,5 +15,5 @@ const RoutePaths = () => (
       </Suspense>
     </BrowserRouter>
   </>
-);
-export default RoutePaths;
+)
+export default RoutePaths

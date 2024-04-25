@@ -1,16 +1,8 @@
-import React from 'react';
-import HomeStyles from './Home.scss';
-import {
-  WELCOME_HEADING,
-  IMG_ALT,
-  REPO_URL,
-  GITHUB_FORK_TEXT,
-  LICENCE_BADGE,
-  FORK_BADGE,
-  STARS_BADGE,
-} from '../../constants/HomeConstants';
-import ReactLogo from '../../assets/images/React.webp';
-import CloudsImage from '../../assets/images/wavesOpacity.svg';
+import React from 'react'
+import HomeStyles from './Home.scss'
+import { WELCOME_HEADING, IMG_ALT, REPO_URL, GITHUB_FORK_TEXT, LICENCE_BADGE, FORK_BADGE, STARS_BADGE } from '../../constants/HomeConstants'
+import ReactLogo from '../../assets/images/React.webp'
+import CloudsImage from '../../assets/images/wavesOpacity.svg'
 
 const Home = () => (
   <>
@@ -28,5 +20,5 @@ const Home = () => (
       </div>
     </div>
   </>
-);
-export default Home;
+)
+export default Home
