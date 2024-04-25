@@ -101,6 +101,9 @@ To run Bundle Analyzer
 npm run build-analyze
 ```
 
+In case storybook does not work
+npx sb init
+
 
 ## Contributors ✨
 

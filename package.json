@@ -10,13 +10,14 @@
     "build-prod": "better-npm-run build-prod",
     "build-analyze": "better-npm-run build-dev-analyze",
     "eslint": "eslint --config ./.eslintrc --ext .js,jsx ./src --fix",
-    "storybook": "start-storybook",
+    "storybook": "storybook dev -p 6006",
     "prettify": "prettier  --config ./.prettierrc --ext .js,jsx,.scss ./src --write",
     "stylelint": "stylelint  --config ./.stylelintrc --aei .scss ./src",
     "build-dev-ssr": "npm run build-dev && better-npm-run build-dev-ssr",
     "build-prod-ssr": "npm run build-prod && better-npm-run build-prod-ssr",
     "start-dev-ssr": "npm run build-dev-ssr && node ./server-build/server.js --inspect",
-    "start-prod-ssr": "npm run build-prod-ssr && node ./server-build/server.js"
+    "start-prod-ssr": "npm run build-prod-ssr && node ./server-build/server.js",
+    "build-storybook": "storybook build"
   },
   "betterScripts": {
     "build-dev-ssr": {
@@ -98,6 +99,15 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
+    "@chromatic-com/storybook": "^1.3.3",
+    "@storybook/addon-essentials": "^8.0.9",
+    "@storybook/addon-interactions": "^8.0.9",
+    "@storybook/addon-links": "^8.0.9",
+    "@storybook/addon-onboarding": "^8.0.9",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.9",
+    "@storybook/react-webpack5": "^8.0.9",
+    "@storybook/test": "^8.0.9",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.14",
@@ -117,6 +127,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.20.1",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-plugin-storybook": "^0.8.0",
     "extract-css-chunks-webpack-plugin": "^4.7.5",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^5.5.1",
@@ -134,6 +145,7 @@
     "react-test-renderer": "^18.2.0",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
+    "storybook": "^8.0.9",
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.0",
     "stylelint-webpack-plugin": "^4.1.1",
@@ -155,5 +167,10 @@
     "hooks": {
       "pre-commit": "lint-staged && npm run build-prod"
     }
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
