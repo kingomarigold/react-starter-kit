@@ -4,7 +4,7 @@ import RestClient from './RestClient'
 jest.mock('axios')
 
 describe('[Rest Client Test Suite]', () => {
-    test('get should call axios get', () => {
+    test('get should call axios get with the required url and params', () => {
         const data = {'name': 'Yrliet'}
         axios.get.mockResolvedValue(data)
 
