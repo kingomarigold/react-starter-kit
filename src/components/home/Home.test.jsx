@@ -7,37 +7,46 @@ import {renderWithProviders} from '../../tests/setup/TestUtils'
 
 
 describe('[Home Component Static Test Suite]', () => {
-  beforeEach(() => {
-    renderWithProviders(<Home />)
-  })
-
+  
   afterEach(() => {
     cleanup()
   })
 
   test('should pass if "React Enterprise Starter Kit" is found in the document', () => {
+    act(() => {
+      renderWithProviders(<Home />)
+    })
+    
     expect(screen.getByText(WELCOME_HEADING)).toBeInTheDocument()
   })
 
   test('Should contain the log in button', () => {
+    act(() => {
+      renderWithProviders(<Home />)
+    })
+    
     expect(screen.getByTestId(LOGIN_ID)).toBeInTheDocument()
   })
 
   test('Should contain the log out button', () => {
+    act(() => {
+      renderWithProviders(<Home />)
+    })
+    
     expect(screen.getByTestId(LOGOUT_ID)).toBeInTheDocument()
   })
 })
 
-describe('[Hoem Component Behavior Test Suite]', () => {
-  beforeEach(() => {
-    renderWithProviders(<Home />)
-  })
-
+describe('[Home Component Behavior Test Suite]', () => {
+  
   afterEach(() => {
     cleanup()
   })
 
   test('Should be able to click on the login button and see the user details', () => {
+    act(() => {
+      renderWithProviders(<Home />)
+    })
     const loginBtn = screen.getByTestId(LOGIN_ID)
     act(() => {
       fireEvent.click(loginBtn)
@@ -55,6 +64,9 @@ describe('[Hoem Component Behavior Test Suite]', () => {
   })
 
   test('Should be able to click the logout button and user details should be removed', () => {
+    act(() => {
+      renderWithProviders(<Home />)
+    })
     const loginBtn = screen.getByTestId(LOGIN_ID)
     act(() => {
       fireEvent.click(loginBtn)
