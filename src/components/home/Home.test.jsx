@@ -53,4 +53,19 @@ describe('[Hoem Component Behavior Test Suite]', () => {
     expect(roles[0]).toHaveTextContent('Admin')
     expect(roles[1]).toHaveTextContent('Clinician')
   })
+
+  test('Should be able to click the logout button and user details should be removed', () => {
+    const loginBtn = screen.getByTestId(LOGIN_ID)
+    act(() => {
+      fireEvent.click(loginBtn)
+    })
+    const userName = screen.getByTestId(USERNAME_ID)
+    expect(userName).toBeInTheDocument()
+    const logoutBtn = screen.getByTestId(LOGOUT_ID)
+    act(() => {
+      fireEvent.click(logoutBtn)
+    })
+    const userNameAfterLogout = screen.queryByTestId(USERNAME_ID)
+    expect(userNameAfterLogout).not.toBeInTheDocument()
+  })
 })
