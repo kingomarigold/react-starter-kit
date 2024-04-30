@@ -147,4 +147,217 @@ describe('[Api Test Suite]', () => {
             )
         })
     })
+
+    describe('[Test Suite for put]', () => {
+        test('Call the put function with all callbacks', async () => {
+            const reqCallback = jest.fn()
+    
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', reqCallback, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.put('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'put',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the put function with only req callback', async () => {
+            const reqCallback = jest.fn()
+    
+            let myApi = new Api('/api', reqCallback, null, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.put('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'put',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the put function with only token fetcher', async () => {
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', null, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.put('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'put',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+        })
+    })
+
+    describe('[Test Suite for patch]', () => {
+        test('Call the patch function with all callbacks', async () => {
+            const reqCallback = jest.fn()
+    
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', reqCallback, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.patch('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'patch',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the patch function with only req callback', async () => {
+            const reqCallback = jest.fn()
+    
+            let myApi = new Api('/api', reqCallback, null, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.patch('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'patch',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the patch function with only token fetcher', async () => {
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', null, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.patch('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'patch',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+        })
+    })
+
+    describe('[Test Suite for delete]', () => {
+        test('Call the delete function with all callbacks', async () => {
+            const reqCallback = jest.fn()
+    
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', reqCallback, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.del('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'delete',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the delete function with only req callback', async () => {
+            const reqCallback = jest.fn()
+    
+            let myApi = new Api('/api', reqCallback, null, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.del('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'delete',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {}
+                })
+            )
+            expect(reqCallback).toHaveBeenCalledTimes(2)
+            expect(reqCallback).toHaveBeenNthCalledWith(1, true)
+            expect(reqCallback).toHaveBeenNthCalledWith(2, false)
+        })
+
+        test('Call the delete function with only token fetcher', async () => {
+            const  tokenFetcher = () => {
+                return '123'
+            }
+    
+            let myApi = new Api('/api', null, tokenFetcher, { 'Content-Type': 'application/json' })
+            myApi.instance = {
+                get: jest.fn(),
+                request: jest.fn()
+            }
+            await myApi.del('/user', {'q': '1234'})
+            expect(myApi.instance.request).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    method: 'delete',
+                    url: '/user',
+                    data: {'q': '1234'},
+                    headers: {'Authorization': 'Bearer 123'}
+                })
+            )
+        })
+    })
 })
